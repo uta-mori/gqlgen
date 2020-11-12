@@ -1,0 +1,122 @@
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=.9,maximum-scale=.9"><meta name=description content="Mapping GraphQL scalar types to Go types"><title>Mapping GraphQL scalar types to Go types &mdash; gqlgen</title><link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700|Source+Code+Pro:400,700|Work+Sans:500,700" rel=stylesheet><link rel=stylesheet href="https://gqlgen.com/main.css?v=3" type=text/css><link rel=stylesheet href="https://gqlgen.com/syntax.css?v=2" type=text/css><script async src="https://www.googletagmanager.com/gtag/js?id=UA-116208894-2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','UA-116208894-2');</script><script src="https://gqlgen.com/main.js?v=1" async></script></head><body><div class=version-switcher><span></span><div class=version-switcher-options><a class=version-switcher-option></a></div></div><div class=layout--logo><a class=logo href=http://github.com/99designs/gqlgen><svg viewBox="0 0 31.92 31.43" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-79.29 -106.7)"><path transform="matrix(.2646 0 0 .2646 79.29 106.7)" d="m31.95.0c-5.673.0-10.27 4.598-10.27 10.27.0.5862.06001 1.157.1543 1.717l-19.74 11.39c-1.239.5653-2.1 1.816-2.1 3.266v65.51h.01562c.001603 1.235.6446 2.437 1.793 3.096l20.03 11.56c-.09429.5594-.1543 1.131-.1543 1.717.0 5.673 4.598 10.27 10.27 10.27 5.674.0 10.27-4.6 10.27-10.27.0-5.673-4.598-10.27-10.27-10.27-2.492.0-4.774.8879-6.553 2.363l-18.22-10.52v-61.4l18.22-10.52c1.778 1.475 4.061 2.363 6.553 2.363 5.674.0 10.27-4.6 10.27-10.27.0-5.673-4.598-10.27-10.27-10.27zm56.73.0c-5.673.0-10.27 4.598-10.27 10.27.0 5.673 4.598 10.27 10.27 10.27 2.492.0 4.776-.8879 6.555-2.363l18.22 10.52v61.4l-18.22 10.52c-1.778-1.474-4.062-2.361-6.553-2.361-5.673.0-10.27 4.598-10.27 10.27.0 5.673 4.598 10.27 10.27 10.27 5.675.0 10.27-4.6 10.27-10.27.0-.5862-.06002-1.157-.1543-1.717l19.74-11.39c1.239-.5653 2.1-1.814 2.1-3.264v-65.51h-.01562c-.00133-1.236-.6437-2.438-1.793-3.098l-20.03-11.56c.09428-.5594.1543-1.131.1543-1.717.0-5.673-4.597-10.27-10.27-10.27zm-28.37 20.76c-5.675.0-10.27 4.598-10.27 10.27.0 1.524.3402 2.967.9355 4.268l-14.76 14.76c-1.301-.5953-2.742-.9355-4.266-.9355-5.673.0-10.27 4.598-10.27 10.27.0 5.673 4.598 10.27 10.27 10.27 1.524.0 2.963-.3406 4.264-.9355l14.77 14.77c-.5953 1.301-.9355 2.742-.9355 4.266.0 5.673 4.599 10.27 10.27 10.27 5.672.0 10.27-4.596 10.27-10.27.0-1.524-.3401-2.965-.9355-4.266l15.63-15.63c.5748.0998 1.162.1621 1.766.1621 5.675.0 10.27-4.598 10.27-10.27.0-5.675-4.599-10.27-10.27-10.27-1.524.0-2.965.3404-4.266.9355l-13.13-13.13c.5954-1.301.9355-2.743.9355-4.268.0-5.673-4.599-10.27-10.27-10.27zm-4.266 19.61c1.3.5949 2.742.9355 4.266.9355 1.523.0 2.964-.3408 4.264-.9355l13.13 13.13c-.5948 1.3-.9355 2.742-.9355 4.266.0 2.377.8147 4.558 2.17 6.299l-14.36 14.37c-1.3-.5947-2.741-.9336-4.264-.9336-1.524.0-2.965.3388-4.266.9336l-14.77-14.77c.5949-1.3.9355-2.74.9355-4.264.0-1.523-.3389-2.964-.9336-4.264l14.76-14.77z"/></g></svg><span class=logo--name>gqlgen</span></a></div><nav><input class=hamburger-toggle type=checkbox><div class=hamburger><span></span><span></span><span></span></div><ul class=menu><li><a class=menu-item href=https://gqlgen.com/>Introduction</a></li><li><a class=menu-item href=https://gqlgen.com/getting-started/>Getting Started</a></li><li><a class=menu-item href=https://gqlgen.com/config/>Configuration</a></li><li><a class=menu-item href=https://gqlgen.com/feature-comparison/>Feature Comparison</a></li><li><span class="menu-item submenu-heading">Reference</span><ul class=submenu><li><a class=menu-item href=https://gqlgen.com/reference/apq/>APQ</a></li><li><a class=menu-item href=https://gqlgen.com/reference/changesets/>Changesets</a></li><li><a class=menu-item href=https://gqlgen.com/reference/dataloaders/>Dataloaders</a></li><li><a class=menu-item href=https://gqlgen.com/reference/field-collection/>Field Collection</a></li><li><a class=menu-item href=https://gqlgen.com/reference/file-upload/>File Upload</a></li><li><a class=menu-item href=https://gqlgen.com/reference/errors/>Handling Errors</a></li><li><a class=menu-item href=https://gqlgen.com/reference/introspection/>Introspection</a></li><li><a class=menu-item href=https://gqlgen.com/reference/plugins/>Plugins</a></li><li><a class=menu-item href=https://gqlgen.com/reference/complexity/>Query Complexity</a></li><li><a class=menu-item href=https://gqlgen.com/reference/resolvers/>Resolvers</a></li><li class=active><a class=menu-item href=https://gqlgen.com/reference/scalars/>Scalars</a></li><li><a class=menu-item href=https://gqlgen.com/reference/directives/>Schema Directives</a></li><li><a class=menu-item href=https://godoc.org/github.com/99designs/gqlgen>godoc
+<span class=icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941.0l-22.627-22.627c-9.373-9.373-9.373-24.569.0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656.0 424.024.0H552c13.255.0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999.0 00384 303.765V448H64V128h264a24.003 24.003.0 0016.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49.0 112v352c0 26.51 21.49 48 48 48h352c26.51.0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"/></svg></span></a></li></ul></li><li><span class="menu-item submenu-heading">Recipes</span><ul class=submenu><li><a class=menu-item href=https://gqlgen.com/recipes/federation/>Apollo Federation</a></li><li><a class=menu-item href=https://gqlgen.com/recipes/authentication/>Authentication</a></li><li><a class=menu-item href=https://gqlgen.com/recipes/cors/>CORS</a></li><li><a class=menu-item href=https://gqlgen.com/recipes/gin/>Gin</a></li><li><a class=menu-item href=https://gqlgen.com/recipes/migration-0.11/>Migrating to 0.11</a></li><li><a class=menu-item href=https://gqlgen.com/recipes/modelgen-hook/>Modelgen hook</a></li></ul></li></ul></nav><header><div class=content><h1>Scalars</h1><div class=description>Mapping GraphQL scalar types to Go types</div><a class=header-link target=_blank href=https://github.com/99designs/gqlgen/blob/master/docs/content/reference/scalars.md>[edit]</a></div></header><main><div class=content><h2 id=built-in-helpers>Built-in helpers</h2><p>gqlgen ships with some built-in helpers for common custom scalar use-cases, <code>Time</code>, <code>Any</code>, <code>Upload</code> and <code>Map</code>. Adding any of these to a schema will automatically add the marshalling behaviour to Go types.</p><h3 id=time>Time</h3><div class=highlight><pre class=chroma><code class=language-graphql data-lang=graphql><span class=kd>scalar</span><span class=w> </span><span class=nc>Time</span><span class=w>
+</span></code></pre></div><p>Maps a <code>Time</code> GraphQL scalar to a Go <code>time.Time</code> struct.</p><h3 id=map>Map</h3><div class=highlight><pre class=chroma><code class=language-graphql data-lang=graphql><span class=kd>scalar</span><span class=w> </span><span class=nc>Map</span><span class=w>
+</span></code></pre></div><p>Maps an arbitrary GraphQL value to a <code>map[string]interface{}</code> Go type.</p><h3 id=upload>Upload</h3><div class=highlight><pre class=chroma><code class=language-graphql data-lang=graphql><span class=kd>scalar</span><span class=w> </span><span class=nc>Upload</span><span class=w>
+</span></code></pre></div><p>Maps a <code>Upload</code> GraphQL scalar to a <code>graphql.Upload</code> struct, defined as follows:</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kd>type</span> <span class=nx>Upload</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>File</span>        <span class=nx>io</span><span class=p>.</span><span class=nx>Reader</span>
+	<span class=nx>Filename</span>    <span class=kt>string</span>
+	<span class=nx>Size</span>        <span class=kt>int64</span>
+	<span class=nx>ContentType</span> <span class=kt>string</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=any>Any</h3><div class=highlight><pre class=chroma><code class=language-graphql data-lang=graphql><span class=kd>scalar</span><span class=w> </span><span class=nc>Any</span><span class=w>
+</span></code></pre></div><p>Maps an arbitrary GraphQL value to a <code>interface{}</code> Go type.</p><h2 id=custom-scalars-with-user-defined-types>Custom scalars with user defined types</h2><p>For user defined types you can implement the graphql.Marshaler and graphql.Unmarshaler interfaces and they will be called.</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>mypkg</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+	<span class=s>&#34;fmt&#34;</span>
+	<span class=s>&#34;io&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>type</span> <span class=nx>YesNo</span> <span class=kt>bool</span>
+
+<span class=c1>// UnmarshalGQL implements the graphql.Unmarshaler interface
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=nx>y</span> <span class=o>*</span><span class=nx>YesNo</span><span class=p>)</span> <span class=nf>UnmarshalGQL</span><span class=p>(</span><span class=nx>v</span> <span class=kd>interface</span><span class=p>{})</span> <span class=kt>error</span> <span class=p>{</span>
+	<span class=nx>yes</span><span class=p>,</span> <span class=nx>ok</span> <span class=o>:=</span> <span class=nx>v</span><span class=p>.(</span><span class=kt>string</span><span class=p>)</span>
+	<span class=k>if</span> <span class=p>!</span><span class=nx>ok</span> <span class=p>{</span>
+		<span class=k>return</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Errorf</span><span class=p>(</span><span class=s>&#34;YesNo must be a string&#34;</span><span class=p>)</span>
+	<span class=p>}</span>
+
+	<span class=k>if</span> <span class=nx>yes</span> <span class=o>==</span> <span class=s>&#34;yes&#34;</span> <span class=p>{</span>
+		<span class=o>*</span><span class=nx>y</span> <span class=p>=</span> <span class=kc>true</span>
+	<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+		<span class=o>*</span><span class=nx>y</span> <span class=p>=</span> <span class=kc>false</span>
+	<span class=p>}</span>
+	<span class=k>return</span> <span class=kc>nil</span>
+<span class=p>}</span>
+
+<span class=c1>// MarshalGQL implements the graphql.Marshaler interface
+</span><span class=c1></span><span class=kd>func</span> <span class=p>(</span><span class=nx>y</span> <span class=nx>YesNo</span><span class=p>)</span> <span class=nf>MarshalGQL</span><span class=p>(</span><span class=nx>w</span> <span class=nx>io</span><span class=p>.</span><span class=nx>Writer</span><span class=p>)</span> <span class=p>{</span>
+	<span class=k>if</span> <span class=nx>y</span> <span class=p>{</span>
+		<span class=nx>w</span><span class=p>.</span><span class=nf>Write</span><span class=p>([]</span><span class=nb>byte</span><span class=p>(</span><span class=s>`&#34;yes&#34;`</span><span class=p>))</span>
+	<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+		<span class=nx>w</span><span class=p>.</span><span class=nf>Write</span><span class=p>([]</span><span class=nb>byte</span><span class=p>(</span><span class=s>`&#34;no&#34;`</span><span class=p>))</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div><p>and then wire up the type in .gqlgen.yml or via directives like normal:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>models</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=nt>YesNo</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=nt>model</span><span class=p>:</span><span class=w> </span><span class=l>github.com/me/mypkg.YesNo</span><span class=w>
+</span></code></pre></div><h2 id=custom-scalars-with-third-party-types>Custom scalars with third party types</h2><p>Sometimes you are unable to add add methods to a type - perhaps you don&rsquo;t own the type, or it is part of the standard
+library (eg string or time.Time). To support this we can build an external marshaler:</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>mypkg</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+	<span class=s>&#34;fmt&#34;</span>
+	<span class=s>&#34;io&#34;</span>
+	<span class=s>&#34;strings&#34;</span>
+
+	<span class=s>&#34;github.com/99designs/gqlgen/graphql&#34;</span>
+<span class=p>)</span>
+
+
+<span class=kd>func</span> <span class=nf>MarshalMyCustomBooleanScalar</span><span class=p>(</span><span class=nx>b</span> <span class=kt>bool</span><span class=p>)</span> <span class=nx>graphql</span><span class=p>.</span><span class=nx>Marshaler</span> <span class=p>{</span>
+	<span class=k>return</span> <span class=nx>graphql</span><span class=p>.</span><span class=nf>WriterFunc</span><span class=p>(</span><span class=kd>func</span><span class=p>(</span><span class=nx>w</span> <span class=nx>io</span><span class=p>.</span><span class=nx>Writer</span><span class=p>)</span> <span class=p>{</span>
+		<span class=k>if</span> <span class=nx>b</span> <span class=p>{</span>
+			<span class=nx>w</span><span class=p>.</span><span class=nf>Write</span><span class=p>([]</span><span class=nb>byte</span><span class=p>(</span><span class=s>&#34;true&#34;</span><span class=p>))</span>
+		<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+			<span class=nx>w</span><span class=p>.</span><span class=nf>Write</span><span class=p>([]</span><span class=nb>byte</span><span class=p>(</span><span class=s>&#34;false&#34;</span><span class=p>))</span>
+		<span class=p>}</span>
+	<span class=p>})</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>UnmarshalMyCustomBooleanScalar</span><span class=p>(</span><span class=nx>v</span> <span class=kd>interface</span><span class=p>{})</span> <span class=p>(</span><span class=kt>bool</span><span class=p>,</span> <span class=kt>error</span><span class=p>)</span> <span class=p>{</span>
+	<span class=k>switch</span> <span class=nx>v</span> <span class=o>:=</span> <span class=nx>v</span><span class=p>.(</span><span class=kd>type</span><span class=p>)</span> <span class=p>{</span>
+	<span class=k>case</span> <span class=kt>string</span><span class=p>:</span>
+		<span class=k>return</span> <span class=s>&#34;true&#34;</span> <span class=o>==</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>ToLower</span><span class=p>(</span><span class=nx>v</span><span class=p>),</span> <span class=kc>nil</span>
+	<span class=k>case</span> <span class=kt>int</span><span class=p>:</span>
+		<span class=k>return</span> <span class=nx>v</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>,</span> <span class=kc>nil</span>
+	<span class=k>case</span> <span class=kt>bool</span><span class=p>:</span>
+		<span class=k>return</span> <span class=nx>v</span><span class=p>,</span> <span class=kc>nil</span>
+	<span class=k>default</span><span class=p>:</span>
+		<span class=k>return</span> <span class=kc>false</span><span class=p>,</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Errorf</span><span class=p>(</span><span class=s>&#34;%T is not a bool&#34;</span><span class=p>,</span> <span class=nx>v</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div><p>Then in .gqlgen.yml point to the name without the Marshal|Unmarshal in front:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>models</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=nt>MyCustomBooleanScalar</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=nt>model</span><span class=p>:</span><span class=w> </span><span class=l>github.com/me/mypkg.MyCustomBooleanScalar</span><span class=w>
+</span></code></pre></div><p><strong>Note:</strong> you also can un/marshal to pointer types via this approach, simply accept a pointer in your
+<code>Marshal...</code> func and return one in your <code>Unmarshal...</code> func.</p><p>See the <a href=https://github.com/99designs/gqlgen/tree/master/example/scalars>example/scalars</a> package for more examples.</p><h2 id=unmarshaling-errors>Unmarshaling Errors</h2><p>The errors that occur as part of custom scalar unmarshaling will return a full path to the field.
+For example, given the following schema &mldr;</p><div class=highlight><pre class=chroma><code class=language-graphql data-lang=graphql><span class=kd>extend</span><span class=w> </span><span class=kd>type</span><span class=w> </span><span class=nc>Mutation</span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=py>updateUser</span><span class=p>(</span><span class=py>userInput</span><span class=p>:</span><span class=w> </span><span class=nc>UserInput</span><span class=p>!):</span><span class=w> </span><span class=nc>User</span><span class=p>!</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=kd>input</span><span class=w> </span><span class=nc>UserInput</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=py>name</span><span class=p>:</span><span class=w> </span><span class=nc>String</span><span class=p>!</span><span class=w>
+</span><span class=w>    </span><span class=py>primaryContactDetails</span><span class=p>:</span><span class=w> </span><span class=nc>ContactDetailsInput</span><span class=p>!</span><span class=w>
+</span><span class=w>    </span><span class=py>secondaryContactDetails</span><span class=p>:</span><span class=w> </span><span class=nc>ContactDetailsInput</span><span class=p>!</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=kd>scalar</span><span class=w> </span><span class=nc>Email</span><span class=w>
+</span><span class=w></span><span class=kd>input</span><span class=w> </span><span class=nc>ContactDetailsInput</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=py>email</span><span class=p>:</span><span class=w> </span><span class=nc>Email</span><span class=p>!</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></div><p>&mldr; and the following variables:</p><div class=highlight><pre class=chroma><code class=language-json data-lang=json>
+<span class=p>{</span>
+  <span class=nt>&#34;userInput&#34;</span><span class=p>:</span> <span class=p>{</span>
+    <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;George&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;primaryContactDetails&#34;</span><span class=p>:</span> <span class=p>{</span>
+      <span class=nt>&#34;email&#34;</span><span class=p>:</span> <span class=s2>&#34;not-an-email&#34;</span>
+    <span class=p>},</span>
+    <span class=nt>&#34;secondaryContactDetails&#34;</span><span class=p>:</span> <span class=p>{</span>
+      <span class=nt>&#34;email&#34;</span><span class=p>:</span> <span class=s2>&#34;george@gmail.com&#34;</span>
+    <span class=p>}</span>
+  <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div><p>&mldr; and an unmarshal function that returns an error if the email is invalid. The mutation will return an error containing the full path:</p><div class=highlight><pre class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;message&#34;</span><span class=p>:</span> <span class=s2>&#34;email invalid&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;path&#34;</span><span class=p>:</span> <span class=p>[</span>
+    <span class=s2>&#34;updateUser&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;userInput&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;primaryContactDetails&#34;</span><span class=p>,</span>
+    <span class=s2>&#34;email&#34;</span>
+  <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div></div></main></body></html>
