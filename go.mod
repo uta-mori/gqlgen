@@ -26,7 +26,7 @@ require (
 	github.com/vektah/dataloaden v0.2.1-0.20190515034641-a19b9a6e7c9e
 	github.com/vektah/gqlparser/v2 v2.1.0
 	golang.org/x/tools v0.0.0-20200114235610-7ae403b6b589
-	gopkg.in/yaml.v2 v2.2.4
+	gopkg.in/yaml.v2 v2.3.0
 	sourcegraph.com/sourcegraph/appdash v0.0.0-20180110180208-2cc67fd64755
 	sourcegraph.com/sourcegraph/appdash-data v0.0.0-20151005221446-73f23eafcf67 // indirect
 )
