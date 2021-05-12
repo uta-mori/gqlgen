@@ -7,7 +7,7 @@ jobs:
     timeout-minutes: 3
     container: golang:1.13-alpine
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2.3.4
       - run: apk add --no-cache --no-progress nodejs npm git bash
       - run: go mod download
       - run: cd integration ; npm install
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     container: golang:1.13-alpine
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2.3.4
       - run: apk add --no-cache --no-progress nodejs npm git bash
       - run: go mod download
       - run: cd example/federation ; npm install
