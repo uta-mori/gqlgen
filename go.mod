@@ -18,7 +18,7 @@ require (
 	github.com/opentracing/basictracer-go v1.0.0 // indirect
 	github.com/opentracing/opentracing-go v1.0.2
 	github.com/pkg/errors v0.8.1
-	github.com/rs/cors v1.6.0
+	github.com/rs/cors v1.8.0
 	github.com/shurcooL/httpfs v0.0.0-20171119174359-809beceb2371 // indirect
 	github.com/shurcooL/vfsgen v0.0.0-20180121065927-ffb13db8def0 // indirect
 	github.com/stretchr/testify v1.4.0
